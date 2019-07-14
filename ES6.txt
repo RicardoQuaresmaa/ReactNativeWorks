@@ -1,0 +1,435 @@
+const, let , var
+
+const a = 3;
+const b = "30"
+const t = true
+
+alert('Merhaba '+name)
+
+const name = 'Burak'
+
+prompt -> Degisken almamizi saglayacak fonksiyon
+
+prompt()
+
+const n = prompt('Isminiz nedir ?')
+
+let n1 = prompt('Lutfen isminizi giriniz : ');
+
+alert('Hosgeldiniz Sayin ' + n1);
+
+-----------------------------------------------------------------------------
+
+
+let yas = 17;
+
+if(yas > 18){
+alert('Araba kullanabilirsin.');
+}
+
+yas == 19
+yas >= 18
+yas <= 18
+yas != 19
+
+let metin = '30'
+
+metin == 30 (2 esit icerik kontrolu yapiyor)
+
+metin === 30 (3 esit icerik ile birlikte type kontrolu yapiyor)
+
+
+-----------------------------------------------------------------------------
+
+Fonksiyonlar
+
+const abc = () => {
+alert('Merhaba');
+}
+
+abc();
+
+-------------------------------------
+
+const abc = (name, surname) => {
+alert('Merhaba '+name + ' '+surname);
+}
+
+abc();
+
+-------------------------------------
+
+const canDrive = (name , age) => {
+
+if(age > 18){
+return 'Araba kullanabilirsin';
+ } else if(age <= 18){
+return 'Araba kullanamazsin';
+ } 
+ }
+
+alert(canDrive('Burak',23))
+
+
+-----------------------------------------------------------------------------
+
+
+const brands = ['Apple','Sony','Samsung']
+
+const brands = ['Apple',12,['abc','cde']]
+
+const brands = ['Apple',12,['abc','cde'] , () => { alert('Merhaba') }]
+
+brands.shift()
+
+brands.pop()
+
+const first = brands.shift()
+
+
+brands.forEach((name,index) => {
+
+console.log(name + ' ' + index);
+
+})
+
+
+const newBrands = brands.map((value) => {
+   return value + '!'
+});
+
+
+console.log(newBrands)
+
+
+
+
+let newBrands = brands.map((value) => {
+   return value + '!'
+});
+
+
+newBrands = brands.filter((value,index) => {
+   return index !== 1;
+});
+
+
+console.log(newBrands)
+
+
+--------------------------------------------------------------
+
+while , do while , for
+
+
+
+let i = 0;
+
+while(i < 10){
+ console.log(i++ + '. deneme')
+}
+
+
+
+do
+{
+console.log(i + '. deneme');
+} while(i > 0)
+
+
+
+for(tanimlama ; kiyaslama ; arttirma){
+
+}
+
+
+
+for(let i = 1 ; i < 10 ; i = i +2)
+{
+console.log(i + '. deneme')
+}
+
+
+
+--------------------------------------------------------------
+
+
+
+document.getElementById
+
+
+document.getElementByClassName
+
+
+document.getElementByName
+
+
+document.getElementsByTagName
+
+
+document.querySelector('h1')
+
+
+document.querySelector('#part1')
+
+
+document.querySelectorAll('h1')
+
+
+document.querySelectorAll('p')
+
+
+const paragraflar = document.querySelectorAll('p')
+
+innerText , document.querySelector('li') , document.querySelector('#part34')
+
+ilkListeElemani.className
+
+document.getElementById('part1')
+
+p1.parentElement , p1.children , document.querySelector('.box')
+
+const box = document.querySelector('.box') , box.childElementCount
+
+
+--------------------------------------------------------------
+
+HTML dom events
+
+btnTopla.addEventListener('click', () => {
+
+const x = ilkSayi.value || 0;
+const y = ikinciSayi.value || 0;
+
+})
+
+innerHTML
+
+
+
+--------------------------------------------------------------
+
+fistikLink.addEventListener('click', () => {
+
+if(fotoFistik.className == 'hide')
+{
+fotoFistik.className = '';
+}
+else
+{
+fotoFistik.className = 'hide';
+}
+})
+
+
+
+event.target
+
+event.target.attributes['data-img']
+
+event['target']
+
+const fotoClick = (event) => {
+debugger;
+const fotoId = event.target.attributes['data-img'].value;
+const foto = document.getElementById(fotoId);
+
+if(foto.className === 'hide'){
+foto.className = '';
+}
+else{
+foto.className = 'hide';
+}
+}
+
+
+
+const fotoClick = (event) => {
+const imgList = document.querySelectorAll('img');
+imgList.forEach((img) => {
+img.className = 'hide';
+})
+}
+
+
+
+findikLink.addEventListener('mouseleave',fotoClick)
+
+
+
+--------------------------------------------------------------
+
+
+// callback fonksiyonlari
+
+const sum = (a,b,callback) => {
+callback(a+b);
+}
+
+sum(2,3, (result6) => {
+console.log('sonuc :'+ result6);
+})
+
+
+
+
+
+--------------------------------------------------------------
+
+
+// console.log('merhaba');
+
+// callback fonksiyonlari
+
+
+const sum = (a,b,callback) => {
+callback(a+b);
+}
+
+sum(2,3, (result6) => {
+console.log('sonuc :'+ result6);
+})
+
+
+
+const split = (str , callback) => {
+
+const result = str.split(',');
+  callback(result);
+}
+
+split('a,b',(result) => {
+
+console.log(result);
+
+})
+
+
+
+
+--------------------------------------------------------------
+Obje Manipulasyonu
+
+
+const obj = {
+name: 'Ali',
+age : 17,
+isStudent : true
+};
+
+console.log({ ...obj , surname: 'Alp'});
+
+
+obj = { ...obj , age : 18};
+console.log(obj);
+
+
+const updateObjects = (obj , key , value , callback) => {
+
+const result = { ...obj , [key] : value};
+
+callback(result);
+
+};
+
+
+
+updateObjects(obj , 'name' , 'Burak' , (result) => {
+
+    console.log(result)
+
+});
+
+
+
+
+updateObjects(obj , 'age' , 22 , (result) => {
+
+    console.log(result)
+
+});
+
+
+
+--------------------------------------------------------------
+
+
+// filter , map , forEach
+
+
+const a = [3,4,5,7];
+
+
+
+console.log( a.filter(x => x % 2 === 1) )
+
+console.log( a.filter(x => x % 2 === 0) )
+
+console.log(a.map(x => x *= 2))
+
+
+
+a.forEach(x => console.log(x * 2));
+
+const result = a.map(x => {
+
+  return x * 2
+
+})
+
+
+console.log(result)
+
+
+
+
+
+const result = a.map(x => {
+
+  if(x % 2 === 0)
+  {
+     return x * 5;
+  }
+  else
+  {
+     return x * 3;
+  }
+
+})
+
+
+
+--------------------------------------------------------------
+
+
+=== !== <= < > >= && ||
+
+console.log('2' === 2);
+
+console.log(2 === 2);
+
+console.log(2 < 3 && 2 > 3);
+
+
+2 > 1 ? console.log('buyuk') : console.log('No')
+
+switch ile yapilan her sey if ile yapilabilir ...
+
+const day = 'Pazartesi'
+
+switch(day) {
+
+case 'Pazartesi'
+concole.log(1);
+break;
+
+case 'Sali'
+concole.log(2);
+break;
+
+default :
+console.log(3);
+
+}
+
+--------------------------------------------------------------
